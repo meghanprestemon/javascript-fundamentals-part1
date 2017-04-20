@@ -6,7 +6,13 @@
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
 function bigSum() {
-  // YOUR CODE HERE
+  var sum = 0;
+
+  for (var i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
+
+  return sum;
 }
 
 // Define a function named pluck that takes in two arguments.
@@ -24,7 +30,15 @@ function bigSum() {
 //
 // and the key 'name', then return ['moe', 'larry', 'curly'].
 
+function pluck (arr, key) {
+  var pluckedArr = [];
 
+  for (var i = 0; i < arr.length; i++) {
+    pluckedArr.push(arr[i][key]);
+  }
+
+  return pluckedArr;
+}
 
 
 // Define a function named pick that takes in two arguments.
@@ -35,7 +49,17 @@ function bigSum() {
 // { name: 'moe', age: 50, id: 1 } and ['name', 'age'], then return
 // { name: 'moe', age: 50 }.
 
+function pick (obj, keys) {
+  var pickedObj = {};
 
+  for (key in obj) {
+    if (keys.indexOf(key) !== -1) {
+      pickedObj[key] = obj[key];
+    }
+  }
+
+  return pickedObj;
+}
 
 
 // Define a function named merge that takes in two arguments.
@@ -45,7 +69,9 @@ function bigSum() {
 // Return a new array that contains all the numbers in each array still sorted.
 // For example, given [1, 3, 5] and [2, 4], then return [1, 2, 3, 4, 5].
 
-
+function merge (arr1, arr2) {
+  return arr1.concat(arr2).sort();
+}
 
 
 // Define a function named unique that takes in one argument.
@@ -54,3 +80,15 @@ function bigSum() {
 // Return a new array that contains all the elements of arr minus any
 // duplicates. For example, given ['a', 'b', 'a', 'c'], then return
 // ['a', 'b', 'c'].
+
+function unique (arr) {
+  var uniqueArr = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    if (uniqueArr.indexOf(arr[i]) === -1) {
+      uniqueArr.push(arr[i]);
+    }
+  }
+
+  return uniqueArr;
+}
